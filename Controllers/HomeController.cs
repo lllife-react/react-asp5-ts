@@ -9,13 +9,7 @@ namespace ReactDotNet.Controllers {
         }
 
         public ActionResult Hello() {
-            try {
-                return View();
-            }
-            catch(Exception ex) {
-                Console.WriteLine(ex.Message);
-                return View();
-            }
+            return View();
         }
     }
 }
