@@ -6,6 +6,7 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNet.Diagnostics;
 
 namespace ReactDotNet
 {
@@ -15,9 +16,10 @@ namespace ReactDotNet
         {
             services.AddMvc();
         }
-        
+
         public void Configure(IApplicationBuilder app)
         {
+            app.UseDeveloperExceptionPage();
             app.UseIISPlatformHandler();
             app.UseStaticFiles();
             app.UseMvc(routes =>  {
