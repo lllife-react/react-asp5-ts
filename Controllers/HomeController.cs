@@ -11,5 +11,12 @@ namespace ReactDotNet.Controllers {
         public ActionResult Hello() {
             return View();
         }
+
+        public ActionResult Composing() {
+            return View();
+        }
+        public ActionResult Todo() {
+            return View();
+        }
     }
 }
