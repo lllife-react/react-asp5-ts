@@ -50,8 +50,21 @@ class TodoApp extends React.Component<any, ITodoState> {
     }
 
     onChange(e: any) {
-        console.log(this.state);
         this.setState({ text: e.target.value , items: this.state.items });
+    }
+
+    getStyle() {
+        return {
+            marging: "20px;",
+            background : "lightgrey",
+            padding: "5px"
+        }
+    }
+
+    getPreviewStyle() {
+        return {
+            marginLeft: "10px"
+        };
     }
 
     render() {
@@ -59,9 +72,10 @@ class TodoApp extends React.Component<any, ITodoState> {
             <div>
                 <h3>TODO</h3>
                 <TodoList items={this.state.items}/>
-                <form onSubmit={ e => this.handleSubmit(e) }>
+                <form onSubmit={ e => this.handleSubmit(e) } style={ this.getStyle() }>
                     <input onChange={ e => this.onChange(e) } value={this.state.text} />
                     <button>{ "Add #" + (this.state.items.length + 1)}</button>
+                    <span style={ this.getPreviewStyle() }>{ this.state.text }</span>
                 </form>
             </div>
         );

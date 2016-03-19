@@ -40,17 +40,29 @@ var TodoApp = (function (_super) {
         this.setState({ items: nextItems, text: nextText });
     };
     TodoApp.prototype.onChange = function (e) {
-        console.log(this.state);
         this.setState({ text: e.target.value, items: this.state.items });
+    };
+    TodoApp.prototype.getStyle = function () {
+        return {
+            marging: "20px;",
+            background: "lightgrey",
+            padding: "5px"
+        };
+    };
+    TodoApp.prototype.getPreviewStyle = function () {
+        return {
+            marginLeft: "10px"
+        };
     };
     TodoApp.prototype.render = function () {
         var _this = this;
         return (React.createElement("div", null, 
             React.createElement("h3", null, "TODO"), 
             React.createElement(TodoList, {items: this.state.items}), 
-            React.createElement("form", {onSubmit: function (e) { return _this.handleSubmit(e); }}, 
+            React.createElement("form", {onSubmit: function (e) { return _this.handleSubmit(e); }, style: this.getStyle()}, 
                 React.createElement("input", {onChange: function (e) { return _this.onChange(e); }, value: this.state.text}), 
-                React.createElement("button", null, "Add #" + (this.state.items.length + 1)))));
+                React.createElement("button", null, "Add #" + (this.state.items.length + 1)), 
+                React.createElement("span", {style: this.getPreviewStyle()}, this.state.text))));
     };
     return TodoApp;
 }(React.Component));
